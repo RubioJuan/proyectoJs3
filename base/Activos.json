@@ -1,0 +1,96 @@
+{
+  "Actives": [
+    {
+      "Id": "",
+      "CodTransaccion": "",
+      "nroFOrmulario": 0,
+      "IdMarca": "",
+      "IdCategoria": "",
+      "IdTIpo": "",
+      "valorUnitario": 0,
+      "IdProveedor": "",
+      "nroSerial": "",
+      "IdEMpresaResponsable": "",
+      "IdEstado": 0
+    }
+  ],
+  "CategoryActives":[
+    {
+        "Id":"",
+        "nombre":""
+    }
+    ],
+    "Suppliers":[
+        {
+            "Id":" ",
+            "nombre":" ",
+            "email":" "
+        }
+    ],
+    "TypeActives":[
+        {
+            "Id":" ",
+            "nombre":" ",
+            "email":" "
+        }
+    ],
+    "Brands":[
+        {
+            "Id":" ",
+            "nombre":" "
+        }
+    ],
+    "status":[
+        {
+            "Id":" ",
+            "nombre":" "
+        }
+    ],
+    "Persons":[
+        {
+            "Id":" ",
+            "nombre":" ",
+            "email":" ",
+            "IdTypePersons":" "
+        }
+    ],
+    "TypePersons":[
+        {
+            "Id":" ",
+            "nombre":" "
+        }
+    ],
+    "TelephonePersons":[
+        {
+            "Id":" ",
+            "nro":0,
+            "ubicacion":" ",
+            "IdPersona":" "
+        }
+    ],
+    "historyActives":[
+        {
+            "Id":" ",
+            "IdActivo":" ",
+            "fecha":"",
+            "IdResponsable":" ",
+            "IdEStado":" "
+        }
+    ],
+    "Assignments":[
+        {
+            "Id":" ",
+            "fecha":"",
+            "IdResponsable":" "
+        }
+    ],
+    "detailMovements":[
+        {
+            "Id":" ",
+            "fecha":" ",
+            "IdActivo":" ",
+            "Comentario":" ",
+            "IdAsignacion":" "
+        }
+    ]
+}
