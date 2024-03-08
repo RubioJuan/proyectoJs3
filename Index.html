@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/Style.css">
-	<script type="module" src="/APIS/active.js" defer></script>
-	<script type="module" src="/Js/Indexapp.js" defer></script>
-	<script type="module" src="/App/Components/asignaciones.js" defer></script>
-	<script src="/Js/app.js" defer></script>
+	<script src="APIS/active.js" defer></script>
+	<script src="Js/Indexapp.js" defer></script>
+	<script src="App/Components/activos.js" defer></script>
+	<script src="Js/app.js" defer></script>
 	<link rel="shortcut icon" href="/Pictures/iconLogo.png" type="image/x-icon">
 	<title>Registro Campuslands</title>
 </head>
@@ -19,12 +19,12 @@
 			<a href="#" class="brand"><img src="/Pictures/iconLogo.png" class="campus"></i class="titulo">Campuslands</a>
 		</div>		
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Opciones</a></li>
+			<li><a href="#" class="active"><i class='bx bxs-dashboard icon'></i>Opciones</a></li>
 			<li class="divider" data-text="Menu"></li>
 			<li>
 				<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMFJREFUSEvtlNENwiAURW830U10E91EJ9FNXMVNrCd5EKRt4EkxaSJJf0g4h3uBDuo8hs58/VzwskSriXPQXzC5M5uraCfpIOkeoqyZAPjNBNe34ILEKwgQ1p4lPW2nKZy5/TcJUgjrAR0NFHb+AfckyHfIWuYA8tH7BF4rmIvP3MMkIU2sJb2rpTNY7NbgSNKq3O/gZDdjNn7Nn7iUAAaSeK9roJ6KvDx3Rd0EreBYfX4GPBg6bx2LglZw8Qy2JxgB89gtGeA0VYkAAAAASUVORK5CYII="/>Activos<i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Agregar</a></li>
+					<li id="agregarTo"><a href="#">Agregar</a></li>
 					<li><a href="#">Editar</a></li>
 					<li><a href="#">Eliminar</a></li>
 					<li><a href="#">Buscar</a></li>
@@ -85,6 +85,7 @@
 				</ul>
 			</li>
 		</ul>
+
 	</section>
 	<section id="content">
 		<nav>
@@ -95,7 +96,9 @@
 		</nav>
 	</section>
 	<main>
-		<add-Asing></add-Asing>
+		<div class="cotenido">
+		<gestor-activos></gestor-activos>
+		</div>
 	</main>
 </body>
 </html>
