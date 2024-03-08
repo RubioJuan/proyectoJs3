@@ -5,14 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/Style.css">
-	<script type="module" src="APIS/active.js" defer></script>
-	<script type="module" src="/Js/Indexapp.js" defer type="module"></script>
-	<script src="Js/app.js" defer></script>
+	<script type="module" src="/APIS/active.js" defer></script>
+	<script type="module" src="/Js/Indexapp.js" defer></script>
+	<script type="module" src="/App/Components/asignaciones.js" defer></script>
+	<script src="/Js/app.js" defer></script>
 	<link rel="shortcut icon" href="/Pictures/iconLogo.png" type="image/x-icon">
-	<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-/>
 	<title>Registro Campuslands</title>
 </head>
 <body>
@@ -97,32 +94,8 @@
 			<span class="divider"></span>
 		</nav>
 	</section>
-
-
-
-<main class="container">
-  
-<form id="form">
-		<label>
-			<!-- Ip del usuario -->
-			<input required id="input" type="text"
-placeholder="Introduce qui la IP">
-<br><small>Por ejemplo : 54.34.21..322
-		  </small>
-		</label>
-		  <br>
-    <button type="submit" id="submit">
-			Buscar imfo
-		  </button>
-		  </form>
- <div>
-		   <pre id="results">
-
-		</pre>
-
-	</div>
-	
-</main>
+	<main>
+		<add-Asing></add-Asing>
+	</main>
 </body>
-
 </html>

@@ -1,7 +1,7 @@
 {
   "Actives": [
     {
-      "Id": "",
+      "Id": 0,
       "CodTransaccion": "",
       "nroFOrmulario": 0,
       "IdMarca": "",
@@ -16,39 +16,39 @@
   ],
   "CategoryActives":[
     {
-        "Id":"",
+        "Id":0,
         "nombre":""
     }
     ],
     "Suppliers":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" ",
             "email":" "
         }
     ],
     "TypeActives":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" ",
             "email":" "
         }
     ],
     "Brands":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" "
         }
     ],
     "status":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" "
         }
     ],
     "Persons":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" ",
             "email":" ",
             "IdTypePersons":" "
@@ -56,13 +56,13 @@
     ],
     "TypePersons":[
         {
-            "Id":" ",
+            "Id":0,
             "nombre":" "
         }
     ],
     "TelephonePersons":[
         {
-            "Id":" ",
+            "Id":0,
             "nro":0,
             "ubicacion":" ",
             "IdPersona":" "
@@ -70,7 +70,7 @@
     ],
     "historyActives":[
         {
-            "Id":" ",
+            "Id":0,
             "IdActivo":" ",
             "fecha":"",
             "IdResponsable":" ",
@@ -79,14 +79,14 @@
     ],
     "Assignments":[
         {
-            "Id":" ",
+            "Id":0,
             "fecha":"",
             "IdResponsable":" "
         }
     ],
     "detailMovements":[
         {
-            "Id":" ",
+            "Id":0,
             "fecha":" ",
             "IdActivo":" ",
             "Comentario":" ",

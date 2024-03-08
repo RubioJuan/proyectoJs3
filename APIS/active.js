@@ -1,8 +1,10 @@
-const URL_API = 'http://localhost:3001'
+const myHeaders = {
+    'Content-Type': 'application/json' // Establece el tipo de contenido JSON
+};
 
-const Dato = async (data, endpoint) => {
+export const Dato = async (URL_API, data ) => {
     try {
-        return await fetch(`${URL_API}/${endpoint}`, {
+        return await fetch(`${URL_API}`, {
             method: "POST",
             headers: myHeaders,
             body: JSON.stringify(data)
@@ -10,4 +12,4 @@ const Dato = async (data, endpoint) => {
     } catch (error) {
         console.error('Error en la solicitud POST:', error.message);
     }
-}
+};
