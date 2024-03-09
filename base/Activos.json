@@ -1,96 +1,83 @@
 {
   "Actives": [
+  ],
+  "CategoryActives": [
     {
       "Id": 0,
-      "CodTransaccion": "",
-      "nroFOrmulario": 0,
-      "IdMarca": "",
-      "IdCategoria": "",
-      "IdTIpo": "",
-      "valorUnitario": 0,
-      "IdProveedor": "",
-      "nroSerial": "",
-      "IdEMpresaResponsable": "",
-      "IdEstado": 0
+      "nombre": ""
     }
   ],
-  "CategoryActives":[
+  "Suppliers": [
     {
-        "Id":0,
-        "nombre":""
+      "Id": 0,
+      "nombre": " ",
+      "email": " "
     }
-    ],
-    "Suppliers":[
-        {
-            "Id":0,
-            "nombre":" ",
-            "email":" "
-        }
-    ],
-    "TypeActives":[
-        {
-            "Id":0,
-            "nombre":" ",
-            "email":" "
-        }
-    ],
-    "Brands":[
-        {
-            "Id":0,
-            "nombre":" "
-        }
-    ],
-    "status":[
-        {
-            "Id":0,
-            "nombre":" "
-        }
-    ],
-    "Persons":[
-        {
-            "Id":0,
-            "nombre":" ",
-            "email":" ",
-            "IdTypePersons":" "
-        }
-    ],
-    "TypePersons":[
-        {
-            "Id":0,
-            "nombre":" "
-        }
-    ],
-    "TelephonePersons":[
-        {
-            "Id":0,
-            "nro":0,
-            "ubicacion":" ",
-            "IdPersona":" "
-        }
-    ],
-    "historyActives":[
-        {
-            "Id":0,
-            "IdActivo":" ",
-            "fecha":"",
-            "IdResponsable":" ",
-            "IdEStado":" "
-        }
-    ],
-    "Assignments":[
-        {
-            "Id":0,
-            "fecha":"",
-            "IdResponsable":" "
-        }
-    ],
-    "detailMovements":[
-        {
-            "Id":0,
-            "fecha":" ",
-            "IdActivo":" ",
-            "Comentario":" ",
-            "IdAsignacion":" "
-        }
-    ]
+  ],
+  "TypeActives": [
+    {
+      "Id": 0,
+      "nombre": " ",
+      "email": " "
+    }
+  ],
+  "Brands": [
+    {
+      "Id": 0,
+      "nombre": " "
+    }
+  ],
+  "status": [
+    {
+      "Id": 0,
+      "nombre": " "
+    }
+  ],
+  "Persons": [
+    {
+      "Id": 0,
+      "nombre": " ",
+      "email": " ",
+      "IdTypePersons": " "
+    }
+  ],
+  "TypePersons": [
+    {
+      "Id": 0,
+      "nombre": " "
+    }
+  ],
+  "TelephonePersons": [
+    {
+      "Id": 0,
+      "nro": 0,
+      "ubicacion": " ",
+      "IdPersona": " "
+    }
+  ],
+  "historyActives": [
+    {
+      "Id": 0,
+      "IdActivo": " ",
+      "fecha": "",
+      "IdResponsable": " ",
+      "IdEStado": " "
+    }
+  ],
+  "Assignments": [
+    {
+      "Id": 0,
+      "fecha": "",
+      "IdResponsable": " "
+    }
+  ],
+  "detailMovements": [
+    {
+      "Id": 0,
+      "fecha": " ",
+      "IdActivo": " ",
+      "Comentario": " ",
+      "IdAsignacion": " "
+    }
+  ]
 }

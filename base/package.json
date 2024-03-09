@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch Activos.json --port 3001"
+    "server": "json-server --watch Activos.json --port 3000"
   },
   "keywords": [],
   "author": "",
