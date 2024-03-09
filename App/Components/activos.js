@@ -1,4 +1,3 @@
-
 class GestorActivos extends HTMLElement {
     constructor() {
         super();
@@ -11,7 +10,7 @@ class GestorActivos extends HTMLElement {
     }
     render(){
         this.innerHTML = /* html*/ `
-            <form id="task-form"class="container-tasks">
+            <form id="taskform"class="container-tasks">
                  <h2>Activos</h2>
                  <div class="container-task_name">
                      <h3>Ingrese el Id</h3>
@@ -62,13 +61,40 @@ class GestorActivos extends HTMLElement {
                          <option value="Impresora">Impresora</option>
                      </select>
                  </div>
+                 <div class="container-task_dates">
+                     <div class="dates-begin">
+                         <h3>Valor Unitario</h3>
+                         <input id="fechaInicio" placeholder="Escribir...">
+                     </div>
+                     <div class="dates-end">
+                         <h3>Id proveedor</h3>
+                         <input id="fechaFin" placeholder="Escribir...">
+                     </div>
+                     <div class="dates-end">
+                         <h3>Numero Serial</h3>
+                         <input id="fechaFin" placeholder="Escribir...">
+                     </div>
+                     <div class="dates-end">
+                         <h3>Id Empresa Responsable</h3>
+                         <input id="fechaFin" placeholder="Escribir...">
+                     </div>
+                 </div>
+                 <div class="container-task_priority">
+                     <h3>Id Estado</h3>
+                     <select id="priority">
+                         <option value="empty">seleccionar...</option>
+                         <option value="No-Asignado">No Asignado</option>
+                         <option value="Asignado">Asignado</option>
+                         <option value="Daño">Dado de baja por daño</option>
+                         <option value="Reparación">Reparación y/o Garantia</option>
+                     </select>
+                 </div>
                  <br>
-                 <input type="submit" value="añadir">
+                 <input type="submit" value="Guardar">
             </form>`;
-    }
-
 }
-customElements.define('gestor-activos', GestorActivos);
+}
+ customElements.define('gestor-activos', GestorActivos);
 
 document.addEventListener('DOMContentLoaded', () => {
     const contenido = document.querySelector('.content');
@@ -86,3 +112,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const btn = document.querySelector('input[type="submit"]');
+const taskform = document.querySelector('#taskform')
+
+const getData = () =>{
+    const datos = new FormData(taskform);
+    const datosProcesados = Object.fromEntries(datos.entries());
+    taskform.reset();
+    return datosProcesados
+}
+const postData = async () => {
+    const newUser = getData();    
+        try {
+            const response = await fetch ('http://localhost:3001/Actives',{
+                method : 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(newUser)
+                /* stringify = HAce que se convierta a formato JSon */
+            });
+            if (response.ok){
+                const jsonResponse = await response.json();
+                const {Id, CodTransaccion, IdMarca} = jsonResponse;
+                `
+                <ul>
+                    Registro consedido:
+                    <li> ${Id} </li>
+                    <li> ${CodTransaccion} </li>
+                    <li> ${IdMarca} </li>
+                </ul>
+                `
+            }
+            } catch (error){
+                console.log(error);
+            }
+    } 

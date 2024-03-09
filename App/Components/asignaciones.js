@@ -65,7 +65,6 @@ export class addActive extends HTMLElement{
                 const container = document.querySelector("#test").value
                 const main = document.querySelector("#main").value
                 const element = parentNode.querySelectorAll('#element').value
-                let newId = 0
 
                 fetch(`${URL_API}`)
                     .then(response => response.json())
