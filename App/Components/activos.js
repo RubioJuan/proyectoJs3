@@ -97,8 +97,8 @@ class GestorActivos extends HTMLElement {
                 document.getElementById("guardarbtn").addEventListener("click", function(event) {
                     event.preventDefault(); // Evita el comportamiento predeterminado del enlace
                     formContainer.style.display = "block"; // Muestra el formulario al hacer clic en el enlace
-                });
             });
+        });
   }
 }
 

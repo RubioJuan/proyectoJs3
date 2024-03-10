@@ -1,83 +1,16 @@
 {
-  "Actives": [
-  ],
-  "CategoryActives": [
-    {
-      "Id": 0,
-      "nombre": ""
-    }
-  ],
-  "Suppliers": [
-    {
-      "Id": 0,
-      "nombre": " ",
-      "email": " "
-    }
-  ],
-  "TypeActives": [
-    {
-      "Id": 0,
-      "nombre": " ",
-      "email": " "
-    }
-  ],
-  "Brands": [
-    {
-      "Id": 0,
-      "nombre": " "
-    }
-  ],
-  "status": [
-    {
-      "Id": 0,
-      "nombre": " "
-    }
-  ],
-  "Persons": [
-    {
-      "Id": 0,
-      "nombre": " ",
-      "email": " ",
-      "IdTypePersons": " "
-    }
-  ],
+  "Actives": [],
+  "CategoryActives": [],
+  "Suppliers": [],
+  "TypeActives": [],
+  "Brands": [],
+  "status": [],
+  "Persons": [],
   "TypePersons": [
-    {
-      "Id": 0,
-      "nombre": " "
-    }
   ],
-  "TelephonePersons": [
-    {
-      "Id": 0,
-      "nro": 0,
-      "ubicacion": " ",
-      "IdPersona": " "
-    }
-  ],
-  "historyActives": [
-    {
-      "Id": 0,
-      "IdActivo": " ",
-      "fecha": "",
-      "IdResponsable": " ",
-      "IdEStado": " "
-    }
-  ],
-  "Assignments": [
-    {
-      "Id": 0,
-      "fecha": "",
-      "IdResponsable": " "
-    }
-  ],
+  "TelephonePersons": [],
+  "historyActives": [],
+  "Assignments": [],
   "detailMovements": [
-    {
-      "Id": 0,
-      "fecha": " ",
-      "IdActivo": " ",
-      "Comentario": " ",
-      "IdAsignacion": " "
-    }
   ]
 }

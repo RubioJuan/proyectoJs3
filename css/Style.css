@@ -9,15 +9,17 @@
 .campus{
 	width: 55px;
 	height: auto;
+	background-color: white;
+	border-radius: 80%;
 }
 :root {
-	--veish: #9AD0EC;
+	--veish: #31363F;
 	--dark-grey: #8D8D8D;
-	--light: #1572A1;
+	--light: #222831;
 	--dark: #FAF3E3;
 	--green: #81D43A;
 	--light-green: var(--black);
-	--blue: #9AD0EC;
+	--blue: #76ABAE;
 	--dark-veish: #7F9F80;
 	--dark-blue: #7F9F80;
 	--red: #FC3B56;
@@ -125,7 +127,7 @@ input[type="submit"]:hover {
 	padding: 0 6px;
 }
 #sidebar .icon {
-	min-width: 48px;
+	min-width: x;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -141,10 +143,11 @@ input[type="submit"]:hover {
 	transition: all .3s ease;
 }
 #sidebar.hide .side-menu {
-	padding: 0 6px;
+	padding: 0 20px;
+
 }
 #sidebar.hide:hover .side-menu {
-	padding: 0 20px;
+	padding: 20px;
 }
 #sidebar .side-menu a {
 	display: flex;
@@ -641,7 +644,12 @@ main .btn-send:hover {
 	justify-content: center;
 	text-align: center;
 }
-
-#hola{
-	color: rgb(0, 0, 0);
+.logo-men{
+	background-color: white;
+	border-radius: 50%;
+	width: 53px;
+}
+.h1_body{
+	padding-left: 16px;
+	font-size: 15px;
 }

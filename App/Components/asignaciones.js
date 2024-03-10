@@ -1,96 +1,83 @@
-import { Dato } from '../../APIS/active'
-
-export class addActive extends HTMLElement{
-    constructor(){
+class Asignaciones extends HTMLElement {
+    constructor() {
         super();
         this.render();
-        addData();
     }
     render(){
-        this.innerHTML = /* html*/`
-             <style rel="stylesheet">
-                 @import "App/Components/categorias.js";
-             </style>
-             <form id="task-form"class="container-tasks">
-                 <h2>Nueva tarea</h2>
-                 <div class="container-task_name">
-                     <h3>Nombre de la tarea</h3>
-                     <input id="name" placeholder="Escribir...">
-                 </div>
-                 <div class="container-task_dates">
-                     <div class="dates-begin">
-                         <h3>Fecha Inicio</h3>
-                         <input id="fechaInicio" type="date">
-                     </div>
-                     <div class="dates-end">
-                         <h3>Fecha Fin</h3>
-                         <input id="fechaFin" type="date">
-                     </div>
-                 </div>
-                 <div class="container-task_responsable">
-                     <h3>Responsable de la tarea</h3>
-                     <input id="responsable" placeholder="nombre del responsable">
-                 </div>
-                 <div class="container-task_priority">
-                     <h3>Nivel de prioridad</h3>
-                     <select id="priority">
-                         <option value="empty">selecciona...</option>
-                         <option value="inmediata">Inmediata</option>
-                         <option value="alta">Alta</option>
-                         <option value="media">Media</option>
-                         <option value="baja">Baja</option>
-                     </select>
-                 </div>
-                 <br>
-                 <input type="submit" value="añadir">
-             </form>
-        `
-    }
-     addData = () => {
-     document.addEventListener('DOMContentLoaded', function() {
-            const URL_API = " http://localhost:3001/Actives"
-            const bookForm = document.querySelector('#activesForm')
+        this.innerHTML = /* html*/ `
+            <form id="taskform7"class="container-tasks">
+                <h2>Detalle Movimiento</h2>
+                <div class="container-task_name">
+                    <h3>Ingrese el Id</h3>
+                    <input name="id" placeholder="Escribir...">
+                </div>
+                <div class="container-task_dates">
+                    <div class="dates-begin">
+                        <h3>Ingrese La fecha</h3>
+                        <input name="fecha1" id="fecha1" placeholder="Escribir...">
+                    </div>
+                    <div class="dates-begin">
+                        <h3>Ingrese el Id Responsable</h3>
+                        <input name="idResponsable" id="idResponsable" placeholder="Escribir...">
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Guardar"></input>
+            </form>`;
+            /* addEventListener() Registra un evento a un objeto en específico.*/
+            /*El DOMContentLoadedevento se activa cuando el documento HTML se ha analizado por completo y todos los scripts diferidos*/ 
+            document.addEventListener("DOMContentLoaded", function() {
+                let formContainer7 = document.getElementById("taskform7");
+                formContainer7.style.display = "none"; // Oculta el formulario inicialmente
             
-
-            bookForm.addEventListener('submit', (e) => {
-                e.preventDefault()
-
-                const titleInput = bookForm.querySelector('#title').value
-                const authorInput = bookForm.querySelector('#author').value
-                const cover = bookForm.querySelector('#cover').value
-                const object = bookForm.querySelector('#object').value
-                const variat = bookForm.querySelector('#variat').value
-                const descInput = bookForm.querySelector('#description').value
-                const elementList = parentNode.querySelectorAll('#selectors').value
-                const container = document.querySelector("#test").value
-                const main = document.querySelector("#main").value
-                const element = parentNode.querySelectorAll('#element').value
-
-                fetch(`${URL_API}`)
-                    .then(response => response.json())
-                    .then(activesData =>{
-                        newId = activesData.length + 1;
-
-
-            const data = {
-                "Id": titleInput,
-                "CodTransaccion": authorInput,
-                "nroFOrmulario": cover,
-                "IdMarca": descInput,
-                "IdCategoria": main,
-                "IdTIpo": object,
-                "valorUnitario": elementList,
-                "IdProveedor": container,
-                "nroSerial": variat,
-                "IdEMpresaResponsable": element,
-                "IdEstado": 0
-            } 
-            Dato(URL_API, data)
-           })
-
-            
-     });
-    }
- )}
+                /* preventDefault Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento, es decir, puede ser llamado de nuevo.*/
+                document.getElementById("otro").addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                    formContainer7.style.display = "block"; // Muestra el formulario al hacer clic en el enlace
+            });
+        });
+  }
 }
-customElements.define("add-active", addActive); 
+
+customElements.define('gestor-asign', Asignaciones);
+
+const btn7 = document.querySelector('input[type="submit"]');
+const taskform7 = document.querySelector('#taskform7')
+
+const getData7 = () => {
+    const datos7 = new FormData(taskform7);
+    const datosProcesados7 = Object.fromEntries(datos7.entries());
+
+    // Añadir los valores de los elementos select
+    datosProcesados7.fecha1 = taskform7.querySelector('#fecha1').value;
+    datosProcesados7.idResponsable = taskform7.querySelector('#idResponsable').value;
+   
+
+    taskform7.reset();
+    return datosProcesados7;
+}
+const postData7 = async () => {
+    const newUser = getData7();
+    console.log('Enviando:', newUser);
+    
+    try {
+        const response = await fetch ('http://localhost:3000/Assignments',{
+            method : 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        });
+        if (response.ok){
+            const jsonResponse7 = await response.json();
+            console.log('Respuesta recibida:', jsonResponse7);
+            const {Id,fecha,idActivo,comentario,idAsignacion} = jsonResponse7;
+            console.log(`Registro consedido: ${Id}, ${fecha},${idActivo}, ${comentario},${idAsignacion}`);
+        }
+    } catch (error){
+        console.log(error);
+    }
+}
+
+taskform7.addEventListener('submit', (event) => {
+    event.preventDefault();
+    postData7();
+});
