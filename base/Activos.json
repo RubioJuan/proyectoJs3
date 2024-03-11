@@ -1,11 +1,11 @@
 {
-  "Actives": [
-  ],
+  "Actives": [],
   "CategoryActives": [],
   "Suppliers": [],
   "TypeActives": [],
   "Brands": [],
-  "status": [],
+  "status": [
+  ],
   "Persons": [],
   "TypePersons": [],
   "TelephonePersons": [],

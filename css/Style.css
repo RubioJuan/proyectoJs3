@@ -368,11 +368,6 @@ nav .profile .profile-link a {
 nav .profile .profile-link a:hover {
 	background: var(--veish);
 }
-/* NAVBAR */
-
-
-
-/* MAIN */
 main {
 	width: 100%;
 	padding: 24px 20px 20px 20px;
@@ -693,8 +688,20 @@ margin-top: 10px;
 margin-right: 10px;
 }
 #resultados{
-	width: 20%;
-	padding: 50px;
-	background-color: wheat;
-	display: none;
+	width: 80%; /* Ancho del contenedor */
+	margin: 0 auto; /* Centrar horizontalmente */
+	padding: 20px; /* Espaciado interno */
+	background-color: #f9f9f9; /* Color de fondo */
+	border: 1px solid #ccc; /* Borde */
+	border-radius: 8px; /* Bordes redondeados */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+	text-align: left; /* Alinear texto a la izquierda */
+	}
+#resultados div {
+	margin-bottom: 10px; /* Espacio entre elementos */
+}
+@media (max-width:1250px){
+	.imputs{
+        width:100px ;
+	} ;
 }

@@ -37,7 +37,6 @@ class GestorMarcas extends HTMLElement {
 
 customElements.define('gestor-marcas', GestorMarcas);
 
-const btn1 = document.querySelector('input[type="submit"]');
 const taskform1 = document.querySelector('#taskform1')
 
 const getData1 = () => {

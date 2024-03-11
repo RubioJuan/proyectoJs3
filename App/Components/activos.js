@@ -115,8 +115,6 @@ const getData = () => {
     datosProcesados.IdCategoria = taskform.querySelector('#categoria').value;
     datosProcesados.IdTipo = taskform.querySelector('#tipo').value;
     datosProcesados.IdEstado = taskform.querySelector('#estado').value;
-
-    // Añadir los valores de los campos de entrada
     datosProcesados.ValorUnitario = taskform.querySelector('#valorUnitario').value;
     datosProcesados.IdProveedor = taskform.querySelector('#idProveedor').value;
     datosProcesados.NumeroSerial = taskform.querySelector('#numeroSerial').value;
@@ -170,7 +168,7 @@ const mostrarDatos = (datos) => {
 }
 
 // Agregar evento de clic al botón de búsqueda
-document.getElementById("btnbuscar").addEventListener("click", function(event) {
+document.querySelector("#btnbuscar ").addEventListener("click", function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
 
     // Mostrar el cuadro de diálogo
@@ -203,6 +201,8 @@ document.getElementById("btnCancelar").addEventListener("click", function(event)
     document.getElementById("dialogoBuscar").style.display = "none";
 });
 
+
+
 // Función para eliminar datos por ID en el servidor
 const eliminarDatosPorId = async (id) => {
     try {
@@ -224,7 +224,7 @@ const eliminarDatosPorId = async (id) => {
 
 // Agregar evento de clic al botón de eliminar
 document.querySelector(".btonEliminar").addEventListener("click", function(event) {
-    event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+    event.preventDefault(); 
 
     // Mostrar el cuadro de diálogo
     document.getElementById("dialogoEliminar").style.display = "block";
@@ -303,7 +303,6 @@ document.getElementById("btnAceptar2").addEventListener("click", async function(
             // Rellenar los campos del formulario de edición con los datos obtenidos
             document.querySelector('input[name="id"]').value = datos.id;
             document.querySelector('input[name="CodTransaccion"]').value = datos.CodTransaccion;
-            // Rellenar los demás campos según sea necesario
 
             // Mostrar el formulario de edición en la pantalla
             document.getElementById("taskform").style.display = "block";
@@ -323,6 +322,5 @@ taskform.addEventListener('submit', async (event) => {
     event.preventDefault();
     // Enviar los datos al servidor
     const datosGuardados = await postData();
-    // Mostrar los datos guardados en la pantalla
     mostrarDatos(datosGuardados);
 });
