@@ -145,12 +145,13 @@ const postData = async () => {
         console.log(error);
     }
 }
+// Función para buscar datos por ID
 const buscarDatosPorId = async (id) => {
     try {
         const response = await fetch(`http://localhost:3000/Actives/${id}`);
         if (response.ok) {
             const jsonResponse = await response.json();
-            mostrarDatos(jsonResponse); // Llamar a la función mostrarDatos para mostrar los datos en la página
+            mostrarDatos(jsonResponse); // Mostrar los datos en la página
         } else {
             console.log('Error al buscar datos:', response.status);
         }
@@ -164,26 +165,42 @@ const mostrarDatos = (datos) => {
     const container = document.getElementById('resultados');
     container.innerHTML = ''; // Limpiar resultados anteriores
     const elemento = document.createElement('div');
-    elemento.textContent = `ID: ${datos.id}, Código de Transacción: ${datos.CodTransaccion}, Marca: ${datos.IdMarca}, Categoria: ${datos.Idcategoria} Tipo ${datos.IdTipo},
-    valor Unitario ${datos.ValorUnitario}, 
-    idProveedor ${datos.IdProveedor}, Numero Serial ${datos.NumeroSerial},Id Empresa Responsable ${datos.IdEmpresaResponsable}, Id Estado ${datos.IdEstado}`;
+    elemento.textContent = `ID: ${datos.id}, Código de Transacción: ${datos.CodTransaccion}, Marca: ${datos.IdMarca}, Categoría: ${datos.IdCategoria}, Tipo: ${datos.IdTipo}, Valor Unitario: ${datos.ValorUnitario}, Proveedor: ${datos.IdProveedor}, Número Serial: ${datos.NumeroSerial}, Empresa Responsable: ${datos.IdEmpresaResponsable}, Estado: ${datos.IdEstado}`;
     container.appendChild(elemento);
-    /*Crea un elemento HTML especificado por su tagName */
-    /*En HTML, tagName devuelve el nombre del elemento en forma canonica, es decir con todas sus letras en mayúscula. */
 }
 
-// Agregar evento de clic al botón de buscar
-document.getElementById("btnbuscar").addEventListener("click", async function(event) {
+// Agregar evento de clic al botón de búsqueda
+document.getElementById("btnbuscar").addEventListener("click", function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
 
-    // Solicitar al usuario que ingrese el ID
-    const id = prompt('Ingrese el ID:');
+    // Mostrar el cuadro de diálogo
+    document.getElementById("dialogoBuscar").style.display = "block";
+});
+
+// Agregar evento de clic al botón "Aceptar" del cuadro de diálogo
+document.getElementById("btnAceptar").addEventListener("click", async function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+    // Obtener el ID ingresado por el usuario
+    const id = document.getElementById("idBuscar").value.trim();
+
     if (id) {
         // Realizar la búsqueda de datos por ID
         await buscarDatosPorId(id);
+
+        // Ocultar el cuadro de diálogo después de buscar los datos
+        document.getElementById("dialogoBuscar").style.display = "none";
     } else {
         console.log('ID no válido.');
     }
+});
+
+// Agregar evento de clic al botón "Cancelar" del cuadro de diálogo
+document.getElementById("btnCancelar").addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+    // Ocultar el cuadro de diálogo sin realizar ninguna acción
+    document.getElementById("dialogoBuscar").style.display = "none";
 });
 
 // Función para eliminar datos por ID en el servidor
@@ -206,22 +223,47 @@ const eliminarDatosPorId = async (id) => {
 }
 
 // Agregar evento de clic al botón de eliminar
-document.querySelector(".btonEliminar").addEventListener("click", async function(event) {
+document.querySelector(".btonEliminar").addEventListener("click", function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
 
-    // Solicitar al usuario que ingrese el ID a eliminar
-    const id = prompt('Ingrese el ID a eliminar:');
+    // Mostrar el cuadro de diálogo
+    document.getElementById("dialogoEliminar").style.display = "block";
+});
+
+// Agregar evento de clic al botón "Aceptar" del cuadro de diálogo
+document.getElementById("btnAceptar1").addEventListener("click", async function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+    // Obtener el ID ingresado por el usuario
+    const id = document.getElementById("idEliminar").value.trim();
+
     if (id) {
         // Confirmar si el usuario está seguro de eliminar los datos
         const confirmacion = confirm('¿Está seguro de eliminar estos datos?');
         if (confirmacion) {
             // Realizar la eliminación de datos por ID
             await eliminarDatosPorId(id);
+
+            // Ocultar el cuadro de diálogo después de eliminar los datos
+            document.getElementById("dialogoEliminar").style.display = "none";
+
+            // Eliminar los datos de la pantalla
+            const container = document.getElementById('resultados');
+            container.innerHTML = '';
         }
     } else {
         console.log('ID no válido.');
     }
 });
+
+// Agregar evento de clic al botón "Cancelar" del cuadro de diálogo
+document.getElementById("btnCancelar1").addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+    // Ocultar el cuadro de diálogo sin realizar ninguna acción
+    document.getElementById("dialogoEliminar").style.display = "none";
+});
+
 // Función para obtener los datos por ID desde el servidor
 const obtenerDatosPorId = async (id) => {
     try {
@@ -238,45 +280,42 @@ const obtenerDatosPorId = async (id) => {
         return null;
     }
 };
-document.addEventListener('DOMContentLoaded', function() {
 
-// Función para mostrar los datos para editar
-const mostrarDatosParaEditar = (datos) => {
-    // Obtener el formulario de edición
-    const formEditar = document.getElementById('formEditar');
-
-    // Rellenar los campos del formulario con los datos obtenidos
-    formEditar.querySelector('input[name="id"]').value = datos.id;
-    formEditar.querySelector('input[name="CodTransaccion"]').value = datos.CodTransaccion;
-    // Rellenar los demás campos según sea necesario
-
-    // Mostrar el formulario de edición
-    formEditar.style.display = "block";
-}
-
-// Agregar evento de clic al botón de editar
-document.querySelector(".btnEditar").addEventListener("click", async function(event) {
+// Agregar evento de clic al elemento .btnEditar
+document.querySelector(".btnEditar").addEventListener("click", function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
 
-    // Solicitar al usuario que ingrese el ID a editar
-    const id = prompt('Ingrese el ID a editar:');
+    // Mostrar el cuadro de diálogo de edición
+    document.getElementById("dialogoEditar").style.display = "block";
+});
+
+// Agregar evento de clic al botón "Aceptar" del cuadro de diálogo de edición
+document.getElementById("btnAceptar2").addEventListener("click", async function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del botón
+
+    // Obtener el ID ingresado por el usuario
+    const id = document.getElementById("idEditar").value.trim();
+
     if (id) {
-        // Confirmar si el usuario está seguro de editar los datos
-        const confirmacion = confirm('¿Está seguro de editar estos datos?');
-        if (confirmacion) {
-            // Obtener los datos por ID
-            const datos = await obtenerDatosPorId(id);
-            if (datos) {
-                // Mostrar los datos para editar
-                mostrarDatosParaEditar(datos);
-            } else {
-                alert('No se encontraron datos con ese ID.');
-            }
+        // Obtener los datos por ID desde el servidor
+        const datos = await obtenerDatosPorId(id);
+        if (datos) {
+            // Rellenar los campos del formulario de edición con los datos obtenidos
+            document.querySelector('input[name="id"]').value = datos.id;
+            document.querySelector('input[name="CodTransaccion"]').value = datos.CodTransaccion;
+            // Rellenar los demás campos según sea necesario
+
+            // Mostrar el formulario de edición en la pantalla
+            document.getElementById("taskform").style.display = "block";
+
+            // Ocultar el cuadro de diálogo de edición después de mostrar los datos para editar
+            document.getElementById("dialogoEditar").style.display = "none";
+        } else {
+            console.log('No se encontraron datos con ese ID.');
         }
     } else {
         console.log('ID no válido.');
     }
-});
 });
 
 // Agregar evento de clic al botón de guardar del formulario
