@@ -1,16 +1,15 @@
 {
-  "Actives": [],
+  "Actives": [
+  ],
   "CategoryActives": [],
   "Suppliers": [],
   "TypeActives": [],
   "Brands": [],
   "status": [],
   "Persons": [],
-  "TypePersons": [
-  ],
+  "TypePersons": [],
   "TelephonePersons": [],
   "historyActives": [],
   "Assignments": [],
-  "detailMovements": [
-  ]
+  "detailMovements": []
 }

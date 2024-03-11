@@ -6,7 +6,7 @@ class GestorEstado extends HTMLElement {
     render(){
         this.innerHTML = /* html*/ `
             <form id="taskform3"class="container-tasks">
-                <h2>EStado</h2>
+                <h2>Estado</h2>
                 <div class="container-task_name">
                     <h3>Ingrese el Id</h3>
                     <input name="id" placeholder="Escribir...">

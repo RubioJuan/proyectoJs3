@@ -1,68 +1,91 @@
-import { Dato } from '../../APIS/active'
-
-export class addActive extends HTMLElement{
-    constructor(){
+class Telefono extends HTMLElement {
+    constructor() {
         super();
         this.render();
-        this.addData();
     }
     render(){
-        this.innerHTML = /* html*/`
-             <style rel="stylesheet">
-                 @import "/../App/Components/css/styles.css";
-             </style>
-             <form id="task-form"class="container-tasks">
-                 <h2>Telefonos de Personas</h2>
-                 <div class="container-task_name">
-                     <h3>Telefonos Persona</h3>
-                     <input id="name" placeholder="Escribir...">
-                 </div>
-                 <div class="container-task_dates">
-                     <div class="dates-begin">
-                         <h3>Fecha Inicio</h3>
-                         <input id="fechaInicio" type="date">
-                     </div>
-                     <div class="dates-end">
-                         <h3>Fecha Fin</h3>
-                         <input id="fechaFin" type="date">
-                     </div>
-                 </div>
-                 <div class="container-task_responsable">
-                     <h3>Responsable de la tarea</h3>
-                     <input id="responsable" placeholder="nombre del responsable">
-                 </div>
-                 <div class="container-task_priority">
-                     <h3>Nivel de prioridad</h3>
-                     <select id="priority">
-                         <option value="empty">selecciona...</option>
-                         <option value="inmediata">Inmediata</option>
-                         <option value="alta">Alta</option>
-                         <option value="media">Media</option>
-                         <option value="baja">Baja</option>
-                     </select>
-                 </div>
-                 <br>
-                 <input type="submit" value="añadir">
-             </form>
-        `
-    }
-     addData = () => {
-     document.addEventListener('DOMContentLoaded', function() {
-            const URL_API = "http://localhost:3001/TelephonePersons"
-            const titleInput = bookForm.querySelector('#title').value
-            const authorInput = bookForm.querySelector('#author').value
-            const cover = bookForm.querySelector('#cover').value
-            const descInput = bookForm.querySelector('#description').value
-            const data = {
-                "Id": titleInput,
-                "nro": authorInput,
-                "ubicacion": cover,
-                "IdPersona": descInput
-            } 
-            Dato(URL_API, data)
-     });
-    }
+        this.innerHTML = /* html*/ `
+            <form id="taskform11"class="container-tasks">
+                <h2>Telefono Persona</h2>
+                <div class="container-task_name">
+                    <h3>Ingrese el Id</h3>
+                    <input name="id" placeholder="Escribir...">
+                </div>
+                <div class="container-task_dates">
+                    <div class="dates-begin">
+                        <h3>Ingrese el Numero</h3>
+                        <input name="nro" id="nro" placeholder="Escribir...">
+                    </div>
+                </div>
+                <div class="container-task_dates">
+                    <div class="dates-begin">
+                        <h3>Ingrese la Ubicación</h3>
+                        <input name="Ubicación" id="Ubicación" placeholder="Escribir...">
+                    </div>
+                </div>
+                <div class="container-task_dates">
+                    <div class="dates-begin">
+                        <h3>Ingrese el Id del Resonsable</h3>
+                        <input name="IdResponsable2" id="IdResponsable2" placeholder="Escribir...">
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Guardar"></input>
+            </form>`;
+            /* addEventListener() Registra un evento a un objeto en específico.*/
+            /*El DOMContentLoadedevento se activa cuando el documento HTML se ha analizado por completo y todos los scripts diferidos*/ 
+            document.addEventListener("DOMContentLoaded", function() {
+                let formContainer11 = document.getElementById("taskform11");
+                formContainer11.style.display = "none"; // Oculta el formulario inicialmente
+            
+                /* preventDefault Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento, es decir, puede ser llamado de nuevo.*/
+                document.getElementById("otro4").addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                    formContainer11.style.display = "block"; // Muestra el formulario al hacer clic en el enlace
+            });
+        });
+  }
+}
+
+customElements.define('gestor-telefono', Telefono);
+
+const btn11 = document.querySelector('input[type="submit"]');
+const taskform11 = document.querySelector('#taskform11')
+
+const getData11 = () => {
+    const datos11 = new FormData(taskform11);
+    const datosProcesados11 = Object.fromEntries(datos11.entries());
+
+    // Añadir los valores de los elementos select
+    datosProcesados11.nro = taskform11.querySelector('#nro').value;
+    datosProcesados11.Ubicación = taskform11.querySelector('#Ubicación').value;
+    datosProcesados11.IdResponsable2 = taskform11.querySelector('#IdResponsable2').value;   
+
+    taskform11.reset();
+    return datosProcesados11;
+}
+const postData11 = async () => {
+    const newUser = getData11();
+    console.log('Enviando:', newUser);
     
- }
-  
- customElements.define("add-active", addActive);
+    try {
+        const response = await fetch ('http://localhost:3000/TelephonePersons',{
+            method : 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        });
+        if (response.ok){
+            const jsonResponse11 = await response.json();
+            console.log('Respuesta recibida:', jsonResponse11);
+            const {Id,nro,Ubicación,IdResponsable2} = jsonResponse11;
+            console.log(`Registro consedido: ${Id},${nro},${Ubicación},${IdResponsable2}`);
+        }
+    } catch (error){
+        console.log(error);
+    }
+}
+
+taskform11.addEventListener('submit', (event) => {
+    event.preventDefault();
+    postData11();
+});

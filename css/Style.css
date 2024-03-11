@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
 * {
-	font-family: 'Open Sans', sans-serif;
+	font:message-box ;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-size: 20px;
 }
 .campus{
 	width: 55px;
@@ -13,13 +14,13 @@
 	border-radius: 80%;
 }
 :root {
-	--veish: #31363F;
-	--dark-grey: #8D8D8D;
-	--light: #222831;
+	--veish: #427D9D;
+	--dark-grey: #AAD7D9;
+	--light: #164863;
 	--dark: #FAF3E3;
 	--green: #81D43A;
 	--light-green: var(--black);
-	--blue: #76ABAE;
+	--blue: #9BBEC8;
 	--dark-veish: #7F9F80;
 	--dark-blue: #7F9F80;
 	--red: #FC3B56;
@@ -652,4 +653,48 @@ main .btn-send:hover {
 .h1_body{
 	padding-left: 16px;
 	font-size: 15px;
+}
+.bx_bxs-dashboard{
+	padding-left: 16px;
+}
+.h1_title{
+	font-size: 110%;
+}
+.search{
+    display: grid;
+	justify-content: center;
+	width: 125px;
+	border-radius: 5px;
+	border: none;
+}
+.container-tasks{
+	background-color: #EEEEEE;
+}
+
+#resultados {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+	border-radius: 50px;
+	overflow: hidden;
+}
+
+#resultados > div {
+    margin-bottom: 10px;
+}
+
+#resultados h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#resultados p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #DDF2FD;
 }

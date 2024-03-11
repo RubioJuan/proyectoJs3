@@ -6,7 +6,7 @@ class Asignaciones extends HTMLElement {
     render(){
         this.innerHTML = /* html*/ `
             <form id="taskform7"class="container-tasks">
-                <h2>Detalle Movimiento</h2>
+                <h2>Asignaciones    </h2>
                 <div class="container-task_name">
                     <h3>Ingrese el Id</h3>
                     <input name="id" placeholder="Escribir...">
@@ -69,8 +69,8 @@ const postData7 = async () => {
         if (response.ok){
             const jsonResponse7 = await response.json();
             console.log('Respuesta recibida:', jsonResponse7);
-            const {Id,fecha,idActivo,comentario,idAsignacion} = jsonResponse7;
-            console.log(`Registro consedido: ${Id}, ${fecha},${idActivo}, ${comentario},${idAsignacion}`);
+            const {fecha1,idResponsable} = jsonResponse7;
+            console.log(`Registro consedido: ${fecha1},${idResponsable}`);
         }
     } catch (error){
         console.log(error);
